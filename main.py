@@ -13,7 +13,7 @@ s = saving.Song()
 
 # Show instrument choices
 instruments = list(s.user_map.values())
-print('\nInstrument choices:')
+print('\nInstrument options:')
 for instrument_i, instrument in enumerate(instruments):
 	print(f'{instrument_i + 1}: {instrument}')
 print()
