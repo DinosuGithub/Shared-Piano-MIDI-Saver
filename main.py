@@ -88,9 +88,9 @@ for track_i, track in enumerate(tracks):
 
     ticks_since_milestone = ticks_elapsed - milestone_seconds_elapsed_tick
     seconds_elapsed = milestone_seconds_elapsed + tick2second(ticks_since_milestone, mid.ticks_per_beat, tempo)
-
-	# For note_on messages, we do not know the end time of the note.
-	# We need to add it to a list of pending notes to be added when we get the note_off message.
+    
+    # For note_on messages, we do not know the end time of the note.
+    # We need to add it to a list of pending notes to be added when we get the note_off message.
     if message.type == 'note_on':
       pending_notes[message.note] = {
         'start_seconds': seconds_elapsed,
