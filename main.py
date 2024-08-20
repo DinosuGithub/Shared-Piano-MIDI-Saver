@@ -105,7 +105,7 @@ for track_i, track in enumerate(tracks):
         'velocity': note_info['velocity'] / 128,
         'pitch': 0,
         'octave': 5,
-        'start': note_info['start_seconds'] * 60 + START_DELAY,
+        'start': note_info['start_seconds'] * 60 + START_DELAY, # 60 Shared Piano ticks every second
         'end': seconds_elapsed * 60 + START_DELAY,
         'emoji': track_icon,
         'sustained': False
