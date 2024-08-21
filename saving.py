@@ -25,7 +25,7 @@ class Song:
       return self.user_for_instrument('piano')
 
   def _generate_save_name(self):
-    chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-'
     return ''.join([random.choice(chars) for _ in range(20)])
 
   def save(self):
