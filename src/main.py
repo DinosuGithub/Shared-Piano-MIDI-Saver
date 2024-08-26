@@ -91,13 +91,19 @@ for track_i, track in enumerate(tracks):
     
     # For note_on messages, we do not know the end time of the note.
     # We need to add it to a list of pending notes to be added when we get the note_off message.
+    note_off = False
     if message.type == 'note_on':
-      pending_notes[message.note] = {
-        'start_seconds': seconds_elapsed,
-        'velocity': message.velocity if use_velocities else 50,
-      }
+      if message.velocity == 0:
+        note_off = True
+      else:
+        pending_notes[message.note] = {
+          'start_seconds': seconds_elapsed,
+          'velocity': message.velocity if use_velocities else 50,
+        }
     # Now we can add the note
     elif message.type == 'note_off':
+      note_off = True
+    if note_off:
       note_info = pending_notes[message.note]
       track_notes.append({
         'color': '#ff0000',
